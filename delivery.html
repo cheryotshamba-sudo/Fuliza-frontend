@@ -7,6 +7,7 @@
 <title>SAFARICOM FULIZA — Delivery</title>
 
 <style>
+<style>
 
 *{
     margin:0;
@@ -14,16 +15,17 @@
     box-sizing:border-box;
 }
 
-html,body{
+html,
+body{
     width:100%;
     min-height:100%;
 }
 
 body{
     min-height:100vh;
-    background:#000;
+    background:#004d00;
     color:#fff;
-    font-family:Arial,sans-serif;
+    font-family:"Trebuchet MS",Arial,sans-serif;
     padding:18px 10px 30px;
 }
 
@@ -39,27 +41,21 @@ body{
     width:100%;
     padding:24px 18px 20px;
 
-    background:
-        linear-gradient(
-            145deg,
-            #151515,
-            #0b0b0b
-        );
+    background:#003d00;
 
-    border:1px solid #292929;
+    border:1px solid #087ac7;
     border-radius:20px;
 
     box-shadow:
-        0 20px 50px rgba(0,0,0,.65),
-        inset 0 1px 0 rgba(255,255,255,.04);
+        0 20px 50px rgba(0,0,0,.45);
 }
 
 /* TITLE */
 
 h2{
-    color:#fff;
-    font-size:22px;
-    font-weight:700;
+    color:#087dcc;
+    font-size:26px;
+    font-weight:600;
     text-align:center;
     margin:2px 0 20px;
 }
@@ -67,16 +63,16 @@ h2{
 /* INTRO */
 
 .intro{
-    background:#171717;
-    color:#d8d8d8;
+    background:#005900;
+    color:#fff;
 
     padding:15px 13px;
 
     border-radius:13px;
-    border:1px solid #292929;
+    border:1px solid #087ac7;
 
-    font-size:14px;
-    line-height:1.55;
+    font-size:15px;
+    line-height:1.6;
 
     margin-bottom:16px;
     text-align:center;
@@ -85,14 +81,14 @@ h2{
 /* DETAILS */
 
 .details{
-    background:#0d0d0d;
+    background:#003300;
 
     padding:16px;
 
     border-radius:14px;
-    border:1px solid #292929;
+    border:1px solid #087ac7;
 
-    font-size:14px;
+    font-size:15px;
 }
 
 .details p{
@@ -107,11 +103,11 @@ h2{
 #selectedService,
 #fullName,
 #phoneNumber{
-    color:#fff;
-    font-weight:600;
+    color:#00d85a;
+    font-weight:700;
 }
 
-/* SECTION */
+/* SECTION TITLE */
 
 .section-title{
     display:block;
@@ -121,38 +117,35 @@ h2{
 
     color:#fff;
     font-weight:700;
-    font-size:14px;
+    font-size:15px;
 }
 
-/* SELECTABLE OPTIONS */
+/* SELECTABLE PAYMENT OPTIONS */
 
 .method{
-    background:#151515;
+    background:#087ac7;
 
-    border:1px solid #303030;
+    border:2px solid transparent;
 
-    padding:15px 13px;
+    padding:16px 13px;
 
-    border-radius:12px;
+    border-radius:15px;
 
-    margin-top:9px;
+    margin-top:10px;
 
-    transition:
-        border-color .2s ease,
-        background .2s ease;
+    transition:.2s ease;
 }
 
 .method:hover{
-    border-color:#777;
-    background:#1b1b1b;
+    background:#096fb4;
 }
 
 .method:has(input:checked){
-    background:#202020;
-    border-color:#fff;
+    background:#096fb4;
+    border-color:#00d85a;
 
     box-shadow:
-        0 0 0 1px rgba(255,255,255,.12);
+        0 0 0 2px rgba(0,216,90,.15);
 }
 
 .method label{
@@ -161,18 +154,20 @@ h2{
 
     cursor:pointer;
 
-    font-size:14px;
-    color:#eee;
+    font-size:15px;
+    color:#fff;
     line-height:1.4;
+    font-weight:600;
 }
 
 .method input{
-    width:18px;
-    height:18px;
+    width:19px;
+    height:19px;
 
     margin:0 10px 0 0;
 
-    accent-color:#fff;
+    accent-color:#00d85a;
+
     flex-shrink:0;
 }
 
@@ -183,17 +178,17 @@ h2{
 
     padding:14px;
 
-    background:#171717;
+    background:#005900;
 
     border-radius:12px;
 
     text-align:center;
 
-    color:#ccc;
+    color:#fff;
 
-    font-size:14px;
+    font-size:15px;
 
-    border:1px solid #2b2b2b;
+    border:1px solid #087ac7;
 }
 
 .fee span{
@@ -201,47 +196,51 @@ h2{
 
     margin-left:3px;
 
-    font-size:20px;
+    font-size:22px;
     font-weight:700;
 
-    color:#fff;
+    color:#00d85a;
 }
 
-/* BUTTON */
+/* PAYMENT BUTTON */
 
 button{
     width:100%;
 
-    min-height:52px;
+    min-height:54px;
 
     padding:15px;
 
     margin-top:17px;
 
     border:none;
-    border-radius:12px;
+    border-radius:15px;
 
-    background:#fff;
-    color:#000;
+    background:#18c85a;
+    color:#fff;
 
-    font-size:16px;
+    font-family:inherit;
+    font-size:17px;
     font-weight:700;
 
     cursor:pointer;
 
-    box-shadow:
-        0 8px 25px rgba(255,255,255,.08);
+    transition:.2s ease;
 }
 
 button:hover{
-    background:#e8e8e8;
+    background:#15b951;
+}
+
+button:active{
+    transform:scale(.99);
 }
 
 button:disabled{
-    background:#3b3b3b;
-    color:#999;
+    background:#777;
+    color:#ccc;
     cursor:not-allowed;
-    box-shadow:none;
+    transform:none;
 }
 
 /* STATUS */
@@ -251,12 +250,12 @@ button:disabled{
 
     margin-top:14px;
 
-    font-size:13px;
+    font-size:14px;
     line-height:1.5;
 
     text-align:center;
 
-    color:#aaa;
+    color:#fff;
 }
 
 /* NOTICE */
@@ -266,13 +265,13 @@ button:disabled{
 
     padding:13px;
 
-    background:#111;
+    background:#003300;
 
-    border:1px solid #272727;
+    border:1px solid #087ac7;
 
     border-radius:11px;
 
-    color:#888;
+    color:#ccc;
 
     font-size:11px;
     line-height:1.55;
@@ -287,7 +286,7 @@ button:disabled{
 
     font-size:12px;
 
-    color:#666;
+    color:#b8b8b8;
 
     text-align:center;
 }
@@ -306,9 +305,25 @@ button:disabled{
     }
 
     h2{
-        font-size:21px;
+        font-size:24px;
     }
 
+    .intro{
+        font-size:14px;
+    }
+
+    .details{
+        padding:14px;
+    }
+
+    .method{
+        padding:15px 12px;
+    }
+
+    button{
+        min-height:52px;
+        font-size:16px;
+    }
 }
 
 /* SMALL PHONES */
@@ -325,14 +340,20 @@ button:disabled{
     }
 
     h2{
-        font-size:20px;
+        font-size:22px;
     }
 
     .method{
-        padding:13px 11px;
+        padding:14px 11px;
     }
 
+    button{
+        min-height:50px;
+    }
 }
+
+</style>
+
 
 </style>
 </head>
