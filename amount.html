@@ -128,7 +128,6 @@ h1{
     padding:15px;
     cursor:pointer;
     text-align:left;
-    transition:.2s;
 }
 
 .limit-option:hover{
@@ -223,23 +222,17 @@ footer a{
 
             <div class="info-row">
                 <span class="label">Phone</span>
-                <span class="value" id="displayPhone">
-                    —
-                </span>
+                <span class="value" id="displayPhone">—</span>
             </div>
 
             <div class="info-row">
                 <span class="label">ID</span>
-                <span class="value" id="displayId">
-                    —
-                </span>
+                <span class="value" id="displayId">—</span>
             </div>
 
             <div class="info-row">
                 <span class="label">Current Limit</span>
-                <span class="value" id="displayLimit">
-                    —
-                </span>
+                <span class="value" id="displayLimit">—</span>
             </div>
 
         </div>
@@ -251,49 +244,57 @@ footer a{
         <h1>Select Your Desired Limit</h1>
 
         <p class="description">
-            Choose a limit option available through the
-            Fulboost service. Fees shown below are for
-            service information only.
+            Choose an option available through the
+            Fulboost service. Fees shown below are
+            for service information only.
         </p>
 
         <div class="options">
 
-            <button class="limit-option" data-limit="8000" data-fee="300">
+            <button type="button" class="limit-option"
+                data-limit="8000" data-fee="300">
                 <div class="limit">KSh 8,000</div>
                 <div class="fee">Service Fee: KSh 300</div>
             </button>
 
-            <button class="limit-option" data-limit="15000" data-fee="400">
+            <button type="button" class="limit-option"
+                data-limit="15000" data-fee="400">
                 <div class="limit">KSh 15,000</div>
                 <div class="fee">Service Fee: KSh 400</div>
             </button>
 
-            <button class="limit-option" data-limit="25000" data-fee="450">
+            <button type="button" class="limit-option"
+                data-limit="25000" data-fee="450">
                 <div class="limit">KSh 25,000</div>
                 <div class="fee">Service Fee: KSh 450</div>
             </button>
 
-            <button class="limit-option" data-limit="35000" data-fee="550">
+            <button type="button" class="limit-option"
+                data-limit="35000" data-fee="550">
                 <div class="limit">KSh 35,000</div>
                 <div class="fee">Service Fee: KSh 550</div>
             </button>
 
-            <button class="limit-option" data-limit="55000" data-fee="650">
+            <button type="button" class="limit-option"
+                data-limit="55000" data-fee="650">
                 <div class="limit">KSh 55,000</div>
                 <div class="fee">Service Fee: KSh 650</div>
             </button>
 
-            <button class="limit-option" data-limit="65000" data-fee="800">
+            <button type="button" class="limit-option"
+                data-limit="65000" data-fee="800">
                 <div class="limit">KSh 65,000</div>
                 <div class="fee">Service Fee: KSh 800</div>
             </button>
 
-            <button class="limit-option" data-limit="75000" data-fee="900">
+            <button type="button" class="limit-option"
+                data-limit="75000" data-fee="900">
                 <div class="limit">KSh 75,000</div>
                 <div class="fee">Service Fee: KSh 900</div>
             </button>
 
-            <button class="limit-option" data-limit="85000" data-fee="1050">
+            <button type="button" class="limit-option"
+                data-limit="85000" data-fee="1050">
                 <div class="limit">KSh 85,000</div>
                 <div class="fee">Service Fee: KSh 1,050</div>
             </button>
@@ -304,8 +305,7 @@ footer a{
             type="button"
             class="continue-btn"
             id="continueBtn"
-            disabled
-        >
+            disabled>
             Select a Limit
         </button>
 
@@ -321,6 +321,7 @@ footer a{
 </main>
 
 <footer>
+
     <a href="#">Terms &amp; Conditions</a> |
     <a href="#">Privacy Policy</a> |
     <a href="#">Support</a>
@@ -328,14 +329,22 @@ footer a{
     <br>
 
     © 2026 Fulboost
+
 </footer>
 
 <script>
-const options = document.querySelectorAll(".limit-option");
-const continueBtn = document.getElementById("continueBtn");
+
+const options =
+    document.querySelectorAll(".limit-option");
+
+const continueBtn =
+    document.getElementById("continueBtn");
 
 let selectedLimit = null;
 let selectedFee = null;
+
+
+/* Select an option */
 
 options.forEach(option => {
 
@@ -347,17 +356,25 @@ options.forEach(option => {
 
         option.classList.add("selected");
 
-        selectedLimit = option.dataset.limit;
-        selectedFee = option.dataset.fee;
+        selectedLimit =
+            option.dataset.limit;
+
+        selectedFee =
+            option.dataset.fee;
 
         continueBtn.disabled = false;
 
         continueBtn.textContent =
             "Continue with KSh " +
-            Number(selectedLimit).toLocaleString();
+            Number(selectedLimit)
+                .toLocaleString();
+
     });
 
 });
+
+
+/* Continue */
 
 continueBtn.addEventListener("click", () => {
 
@@ -365,19 +382,21 @@ continueBtn.addEventListener("click", () => {
         return;
     }
 
-    sessionStorage.setItem("selectedLimit", selectedLimit);
-    sessionStorage.setItem("serviceFee", selectedFee);
-
-    window.location.href = "activation.html";
-
-});
-
-    alert(
-        "Selected limit: KSh " +
-        Number(selectedLimit).toLocaleString()
+    sessionStorage.setItem(
+        "selectedLimit",
+        selectedLimit
     );
 
+    sessionStorage.setItem(
+        "serviceFee",
+        selectedFee
+    );
+
+    window.location.href =
+        "activation.html";
+
 });
+
 </script>
 
 </body>
