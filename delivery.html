@@ -7,533 +7,208 @@
 <title>SAFARICOM FULIZA — Delivery</title>
 
 <style>
+<style>
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
 }
 
-html,
-body{
-    width:100%;
-    min-height:100%;
-}
-
 body{
     min-height:100vh;
-    background:#0B0217;
+    background:#000;
     color:#fff;
-    font-family:'Poppins',Arial,sans-serif;
+    font-family:Arial,sans-serif;
+    padding:20px 0;
 }
-
-/* =================================
-   HERO
-================================= */
-
-.hero{
-    position:relative;
-    width:100%;
-    min-height:100vh;
-    overflow-x:hidden;
-    overflow-y:auto;
-
-    background:
-        radial-gradient(
-            circle at 50% 65%,
-            rgba(137,43,226,.32) 0%,
-            rgba(81,21,130,.18) 25%,
-            rgba(11,2,23,0) 60%
-        ),
-        linear-gradient(
-            180deg,
-            #0B0217 0%,
-            #100322 50%,
-            #0B0217 100%
-        );
-}
-
-.hero::before{
-    content:"";
-    position:absolute;
-
-    width:650px;
-    height:650px;
-
-    left:50%;
-    bottom:-430px;
-
-    transform:translateX(-50%);
-
-    background:rgba(145,45,255,.35);
-
-    filter:blur(110px);
-    border-radius:50%;
-
-    pointer-events:none;
-}
-
-/* =================================
-   CONTAINER
-================================= */
 
 .container{
-    position:relative;
-    z-index:2;
-
-    width:100%;
-    max-width:520px;
-
-    min-height:100vh;
-
-    margin:0 auto;
-
-    padding:20px 18px 40px;
+    width:92%;
+    max-width:480px;
+    margin:auto;
 }
-
-/* =================================
-   BRAND
-================================= */
-
-.logo{
-    width:100%;
-    text-align:center;
-
-    margin-top:8px;
-    margin-bottom:25px;
-}
-
-.logo-text{
-    font-size:26px;
-    font-weight:700;
-    letter-spacing:.5px;
-    color:#fff;
-}
-
-.logo-subtitle{
-    margin-top:4px;
-    font-size:12px;
-    color:rgba(255,255,255,.48);
-}
-
-/* =================================
-   HEADINGS
-================================= */
-
-h1{
-    text-align:center;
-
-    font-size:30px;
-    line-height:1.2;
-    font-weight:700;
-
-    color:#fff;
-
-    margin-bottom:10px;
-}
-
-.subtitle{
-    width:100%;
-
-    margin:0 auto 24px;
-
-    text-align:center;
-
-    font-size:14px;
-    line-height:1.6;
-
-    color:rgba(255,255,255,.70);
-}
-
-/* =================================
-   CARD
-================================= */
 
 .card{
-    width:100%;
-
-    padding:24px 20px;
-
-    border-radius:22px;
-
-    background:
-        linear-gradient(
-            145deg,
-            rgba(255,255,255,.09),
-            rgba(255,255,255,.035)
-        );
-
-    border:1px solid rgba(255,255,255,.10);
-
-    box-shadow:
-        0 20px 60px rgba(0,0,0,.45),
-        inset 0 1px 0 rgba(255,255,255,.05);
-
-    backdrop-filter:blur(15px);
-    -webkit-backdrop-filter:blur(15px);
+    background:#111;
+    padding:22px 18px;
+    border-radius:14px;
+    border:1px solid #2a2a2a;
+    box-shadow:0 8px 30px rgba(0,0,0,.5);
 }
 
-/* =================================
-   INTRO
-================================= */
+h2{
+    color:#fff;
+    font-size:22px;
+    text-align:center;
+    margin-bottom:18px;
+}
 
 .intro{
-    width:100%;
-
-    padding:15px;
-
-    margin-bottom:18px;
-
-    border-radius:14px;
-
-    background:rgba(155,53,255,.08);
-
-    border:1px solid rgba(155,53,255,.18);
-}
-
-.intro p{
-    color:rgba(255,255,255,.72);
-
-    font-size:13px;
-    line-height:1.6;
-
+    background:#181818;
+    color:#fff;
+    padding:14px 12px;
+    border-radius:10px;
+    font-size:14px;
+    line-height:1.55;
+    margin-bottom:15px;
+    border:1px solid #2a2a2a;
     text-align:center;
 }
 
-/* =================================
-   DETAILS
-================================= */
-
 .details{
-    width:100%;
-
-    padding:16px;
-
-    border-radius:14px;
-
-    background:rgba(255,255,255,.045);
-
-    border:1px solid rgba(255,255,255,.10);
-}
-
-.detail-row{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-
-    gap:12px;
-
-    padding:9px 0;
-
-    border-bottom:1px solid rgba(255,255,255,.06);
-
+    background:#0d0d0d;
+    padding:15px;
+    border-radius:12px;
+    border:1px solid #292929;
     font-size:14px;
 }
 
-.detail-row:last-child{
-    border-bottom:none;
+.details p{
+    margin:9px 0;
+    line-height:1.45;
 }
 
-.detail-label{
-    color:rgba(255,255,255,.55);
+.details b{
+    color:#fff;
 }
 
-.detail-value{
-    color:#B86CFF;
+#selectedService,
+#fullName,
+#phoneNumber{
+    color:#fff;
     font-weight:600;
-    text-align:right;
 }
-
-/* =================================
-   SECTION TITLE
-================================= */
 
 .section-title{
     display:block;
-
-    margin-top:22px;
-    margin-bottom:10px;
-
-    font-size:14px;
-    font-weight:600;
-
-    color:rgba(255,255,255,.88);
+    margin-top:17px;
+    margin-bottom:8px;
+    font-weight:700;
+    color:#fff;
 }
 
-/* =================================
-   DELIVERY OPTIONS
-================================= */
-
 .method{
-    width:100%;
-
+    background:#151515;
+    border:1px solid #333;
     padding:14px 12px;
-
-    margin-top:10px;
-
-    border-radius:14px;
-
-    border:1px solid rgba(255,255,255,.10);
-
-    background:rgba(255,255,255,.055);
-
-    transition:.2s ease;
+    border-radius:10px;
+    margin-top:9px;
 }
 
 .method:hover{
-    background:rgba(155,53,255,.15);
-
-    border-color:rgba(155,53,255,.45);
+    border-color:#fff;
+    background:#1d1d1d;
 }
 
 .method label{
     display:flex;
-
     align-items:center;
-
     cursor:pointer;
-
-    color:rgba(255,255,255,.88);
-
     font-size:14px;
-
+    color:#eee;
     line-height:1.4;
 }
 
 .method input{
     width:18px;
     height:18px;
-
     margin:0 10px 0 0;
-
-    accent-color:#9B35FF;
-
-    flex-shrink:0;
+    accent-color:#fff;
 }
 
-/* =================================
-   FEE
-================================= */
-
 .fee{
-    width:100%;
-
-    margin-top:18px;
-
-    padding:14px;
-
-    border-radius:14px;
-
+    margin:16px 0 0;
+    padding:13px;
+    background:#181818;
+    border-radius:10px;
     text-align:center;
-
-    background:rgba(155,53,255,.08);
-
-    border:1px solid rgba(155,53,255,.18);
-
-    color:#B86CFF;
-
-    font-size:14px;
+    color:#fff;
+    font-size:15px;
+    border:1px solid #2d2d2d;
 }
 
 .fee span{
-    font-size:21px;
+    font-size:20px;
     font-weight:700;
+    color:#fff;
 }
-
-/* =================================
-   BUTTON
-================================= */
 
 button{
     width:100%;
-
-    min-height:54px;
-
-    margin-top:16px;
-
+    padding:15px;
+    margin-top:15px;
     border:none;
-    border-radius:14px;
-
-    background:
-        linear-gradient(
-            135deg,
-            #9B35FF,
-            #6C1DCE
-        );
-
-    color:#fff;
-
-    font-family:inherit;
-
+    border-radius:9px;
+    background:#fff;
+    color:#000;
     font-size:16px;
     font-weight:700;
-
     cursor:pointer;
-
-    box-shadow:
-        0 10px 30px rgba(137,43,226,.30);
-
-    transition:
-        transform .2s ease,
-        box-shadow .2s ease,
-        opacity .2s ease;
 }
 
 button:hover{
-    transform:translateY(-2px);
-
-    box-shadow:
-        0 14px 35px rgba(137,43,226,.40);
+    background:#e5e5e5;
 }
 
-button:active{
-    transform:translateY(0);
+button:disabled{
+    background:#444;
+    color:#aaa;
+    cursor:not-allowed;
 }
-
-/* =================================
-   STATUS
-================================= */
 
 #status{
     min-height:22px;
-
     margin-top:13px;
-
-    text-align:center;
-
-    color:rgba(255,255,255,.65);
-
     font-size:13px;
-
     line-height:1.5;
+    text-align:center;
+    color:#bbb;
 }
-
-/* =================================
-   NOTICE
-================================= */
 
 .notice{
-    width:100%;
-
-    margin-top:20px;
-
-    padding:15px;
-
-    border-radius:14px;
-
-    background:rgba(155,53,255,.08);
-
-    border:1px solid rgba(155,53,255,.18);
-}
-
-.notice p{
-    color:rgba(255,255,255,.58);
-
+    margin-top:15px;
+    padding:12px;
+    background:#151515;
+    border:1px solid #292929;
+    border-radius:9px;
+    color:#999;
     font-size:11px;
-
-    line-height:1.6;
-
+    line-height:1.5;
     text-align:center;
 }
-
-/* =================================
-   SECURE
-================================= */
 
 .secure{
-    margin-top:15px;
-
-    text-align:center;
-
-    color:rgba(255,255,255,.38);
-
-    font-size:11px;
-}
-
-/* =================================
-   FOOTER
-================================= */
-
-.footer{
-    position:relative;
-    z-index:2;
-
-    width:100%;
-
-    margin-top:25px;
-
-    text-align:center;
-
-    color:rgba(255,255,255,.40);
-
+    margin:13px 0 0;
     font-size:12px;
+    color:#777;
+    text-align:center;
 }
-
-/* =================================
-   MOBILE
-================================= */
-
-@media(max-width:480px){
-
-    .container{
-        width:100%;
-
-        padding:16px 14px 35px;
-    }
-
-    .logo{
-        margin-bottom:22px;
-    }
-
-    .logo-text{
-        font-size:24px;
-    }
-
-    h1{
-        font-size:27px;
-    }
-
-    .subtitle{
-        font-size:14px;
-
-        margin-bottom:22px;
-    }
-
-    .card{
-        padding:20px 16px;
-
-        border-radius:19px;
-    }
-
-    .method{
-        padding:14px 11px;
-    }
-
-    button{
-        min-height:52px;
-
-        font-size:15px;
-    }
-}
-
-/* =================================
-   SMALL PHONES
-================================= */
 
 @media(max-width:360px){
 
-    .container{
-        padding-left:12px;
-        padding-right:12px;
+    body{
+        padding:10px 7px;
     }
 
-    h1{
-        font-size:24px;
+    .container{
+        width:94%;
     }
 
     .card{
         padding:18px 13px;
+        border-radius:12px;
+    }
+
+    h2{
+        font-size:20px;
+    }
+
+    button{
+        padding:14px;
+        font-size:15px;
     }
 }
+</style>
 </style>
 </head>
 
