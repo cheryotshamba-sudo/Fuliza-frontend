@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>FULBOOST</title>
+
+<style>
+
+*{
+    box-sizing:border-box;
+}
+
+body{
+    margin:0;
+    padding:20px 12px;
+    min-height:100vh;
+    background:#0B0217;
+    font-family:Arial,sans-serif;
+    color:#fff;
+}
+
+.container{
+    width:100%;
+    max-width:430px;
+    margin:40px auto;
+}
+
+.card{
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,0.09),
+            rgba(255,255,255,0.035)
+        );
+
+    padding:28px 20px;
+
+    border-radius:18px;
+
+    text-align:center;
+
+    border:1px solid rgba(255,255,255,0.10);
+
+    box-shadow:
+        0 20px 60px rgba(0,0,0,0.45);
+}
+
+.success{
+    width:70px;
+    height:70px;
+
+    margin:0 auto 18px;
+
+    border-radius:50%;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    background:rgba(155,53,255,0.12);
+
+    border:1px solid rgba(155,53,255,0.25);
+
+    color:#B86CFF;
+
+    font-size:38px;
+
+    font-weight:bold;
+}
+
+h1{
+    margin:0 0 16px;
+
+    color:#9B35FF;
+
+    font-size:25px;
+}
+
+p{
+    color:rgba(255,255,255,0.72);
+
+    font-size:14px;
+
+    line-height:1.6;
+
+    margin:12px 0;
+}
+
+#name{
+    color:#B86CFF;
+}
+
+button{
+    width:100%;
+
+    margin-top:20px;
+
+    padding:15px;
+
+    border:none;
+
+    border-radius:10px;
+
+    background:#9B35FF;
+
+    color:#fff;
+
+    font-size:16px;
+
+    font-weight:700;
+
+    cursor:pointer;
+}
+
+button:hover{
+    background:#6C1DCE;
+}
+
+.notice{
+    margin-top:18px;
+
+    padding:12px;
+
+    border-radius:9px;
+
+    background:rgba(255,255,255,0.04);
+
+    color:rgba(255,255,255,0.45);
+
+    font-size:11px;
+
+    line-height:1.5;
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="container">
+
+<div class="card">
+
+
+<div class="success">
+    ✓
+</div>
+
+
+<h1>
+    Payment Successful
+</h1>
+
+
+<p>
+    Congratulations
+    <b>
+        <span id="name"></span>
+    </b>!
+</p>
+
+
+<p>
+    Your payment has been received successfully.
+</p>
+
+
+<p>
+    Your Fulboost service request has been submitted successfully.
+</p>
+
+
+<p>
+    Your request is now complete. Any further communication will be provided according to the terms of the independent service.
+</p>
+
+
+<button onclick="finish()">
+    OK
+</button>
+
+
+<div class="notice">
+
+Fulboost is an independent service and is not affiliated with or endorsed by Safaricom PLC.
+
+</div>
+
+
+</div>
+
+</div>
+
+
+<script>
+
+
+const applicant =
+    localStorage.getItem("applicantName") ||
+    localStorage.getItem("fullName") ||
+    "Applicant";
+
+
+document.getElementById("name").textContent =
+    applicant;
+
+
+function finish(){
+
+    alert(
+        "Thank you for choosing Fulboost."
+    );
+
+}
+
+
+</script>
+
+
+</body>
+
+</html>
