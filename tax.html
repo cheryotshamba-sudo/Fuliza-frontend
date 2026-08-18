@@ -260,6 +260,8 @@ const fullName =
     localStorage.getItem("fullName") ||
     sessionStorage.getItem("fullName") ||
     "Applicant";
+
+localStorage.setItem("fullName", fullName); 
 const phone =
     localStorage.getItem("phoneNumber") ||
     localStorage.getItem("paymentPhone") ||
