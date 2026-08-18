@@ -215,9 +215,11 @@ document.getElementById("verifyForm").addEventListener("submit", function(e){
     const button = document.querySelector(".btn");
 
     button.textContent = "Processing...";
-    button.disabled = true;
+button.disabled = true;
 
-    // Add your legitimate next-step handling here.
+setTimeout(() => {
+    window.location.href = "amount.html";
+}, 800);
 });
 </script>
 
