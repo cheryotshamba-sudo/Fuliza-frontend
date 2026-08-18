@@ -252,9 +252,9 @@ const statusBox =
 // LOAD CUSTOMER DETAILS
 // ==========================================
 
-const applicantName =
-    localStorage.getItem("applicantName") ||
+const applicant =
     localStorage.getItem("fullName") ||
+    localStorage.getItem("applicantName") ||
     "Applicant";
 
 const savedPhone =
