@@ -190,7 +190,13 @@ footer{
 </div>
 
 <script>
+const paymentPhone =
+    localStorage.getItem("paymentPhone");
 
+document.getElementById("paymentPhoneDisplay").innerText =
+    paymentPhone
+        ? "Payment number: " + paymentPhone
+        : "Payment number not available";
 function updateFee(){
 
     const selected =
