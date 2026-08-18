@@ -329,30 +329,11 @@ form.addEventListener("submit", function(event){
         phone
     );
 
+button.textContent = "Continue...";
+button.disabled = true;
 
-    button.textContent = "Processing...";
-    button.disabled = true;
-
-
-    /*
-     * Replace this with your legitimate
-     * next page when it is ready.
-     *
-     * Example:
-     *
-     * window.location.href = "payment.html";
-     */
-
-    setTimeout(() => {
-
-        button.textContent = "Continue";
-        button.disabled = false;
-
-        alert(
-            "Your selection has been recorded."
-        );
-
-    }, 800);
+window.location.href = "payment.html";
+    
 
 });
 </script>
