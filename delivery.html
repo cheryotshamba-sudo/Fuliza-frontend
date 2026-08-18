@@ -5,7 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Delivery Payment</title>
+const paymentPhone =
+    localStorage.getItem("paymentPhone");
 
+document.getElementById("paymentPhoneDisplay").innerText =
+    paymentPhone
+        ? "Payment number: " + paymentPhone
+        : "Payment number not available";
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Mali:wght@400;500;600;700&display=swap');
 
