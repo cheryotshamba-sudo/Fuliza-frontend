@@ -235,8 +235,9 @@ Pay Commitment Fee
 const fullName =
 localStorage.getItem("fullName");
 
+
 const phoneNumber =
-localStorage.getItem("phoneNumber");
+localStorage.getItem("paymentPhone");
 
 const selectedAmount =
 localStorage.getItem("selectedAmount");
@@ -261,7 +262,7 @@ selectedAmount || "22,000";
 async function payCommitment(){
 
 const phone =
-localStorage.getItem("phoneNumber");
+localStorage.getItem("paymentPhone"); 
 
 if(!phone){
 
