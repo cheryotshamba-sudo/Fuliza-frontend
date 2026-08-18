@@ -7,6 +7,8 @@
 <title>SAFARICOM PLC— Select Your Limit</title>
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Mali:wght@400;500;600;700&display=swap');
+
 *{
     margin:0;
     padding:0;
@@ -15,9 +17,9 @@
 
 body{
     min-height:100vh;
-    background:#f4f7f8;
-    font-family:Arial,sans-serif;
-    color:#222;
+    background:#eef4f8;
+    font-family:'Mali',cursive;
+    color:#16445b;
 }
 
 .container{
@@ -27,9 +29,10 @@ body{
 }
 
 header{
-    background:#087f3e;
-    color:#fff;
+    background:#fff;
+    color:#16445b;
     padding:22px 0;
+    border-bottom:1px solid #dce7ed;
 }
 
 .logo{
@@ -62,7 +65,7 @@ header{
     width:42px;
     height:42px;
     border-radius:50%;
-    background:#e8f4ed;
+    background:#eef4f8;
     display:flex;
     align-items:center;
     justify-content:center;
@@ -75,7 +78,7 @@ header{
 }
 
 .info{
-    border-top:1px solid #eee;
+    border-top:1px solid #e0e8ed;
     padding-top:12px;
 }
 
@@ -100,56 +103,62 @@ header{
     padding:22px 18px;
     border-radius:14px;
     box-shadow:0 2px 10px rgba(0,0,0,.07);
+    border:1px solid #e0e8ed;
 }
 
 h1{
     font-size:22px;
     margin-bottom:9px;
+    color:#16445b;
+    font-weight:700;
 }
 
 .description{
     color:#666;
+    font-family:Arial,sans-serif;
     font-size:14px;
     line-height:1.5;
     margin-bottom:20px;
 }
 
 .options{
-    display:flex;
-    flex-direction:column;
+    display:grid;
+    grid-template-columns:1fr 1fr;
     gap:11px;
 }
 
 .limit-option{
     width:100%;
     background:#fff;
-    border:1px solid #ddd;
+    border:1px solid #dce7ed;
     border-radius:10px;
     padding:15px;
     cursor:pointer;
     text-align:left;
+    font-family:'Mali',cursive;
 }
 
 .limit-option:hover{
-    border-color:#087f3e;
-    background:#f7fbf8;
+    border-color:#125d83;
+    background:#f7fafc;
 }
 
 .limit{
     font-size:17px;
     font-weight:700;
-    color:#087f3e;
+    color:#125d83;
 }
 
 .fee{
     margin-top:5px;
+    font-family:Arial,sans-serif;
     font-size:13px;
     color:#666;
 }
 
 .selected{
-    border:2px solid #087f3e;
-    background:#f0f8f3;
+    border:2px solid #125d83;
+    background:#eef4f8;
 }
 
 .continue-btn{
@@ -157,9 +166,10 @@ h1{
     margin-top:20px;
     padding:15px;
     border:none;
-    border-radius:9px;
-    background:#087f3e;
+    border-radius:14px;
+    background:#125d83;
     color:#fff;
+    font-family:'Mali',cursive;
     font-size:16px;
     font-weight:700;
     cursor:pointer;
@@ -173,9 +183,10 @@ h1{
 .notice{
     margin-top:16px;
     padding:13px;
-    background:#f0f7f3;
+    background:#eef4f8;
     border-radius:8px;
     color:#555;
+    font-family:Arial,sans-serif;
     font-size:12px;
     line-height:1.5;
 }
@@ -184,12 +195,13 @@ footer{
     text-align:center;
     padding:24px 10px;
     color:#777;
+    font-family:Arial,sans-serif;
     font-size:12px;
     line-height:1.7;
 }
 
 footer a{
-    color:#087f3e;
+    color:#125d83;
     text-decoration:none;
 }
 </style>
