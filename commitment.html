@@ -229,9 +229,10 @@ Pay Commitment Fee
 // ==========================================
 
 const fullName =
-localStorage.getItem("fullName");
+localStorage.getItem("fullName") ||
+"Applicant"; 
 
-
+localStorage.setItem("fullName", fullName);
 const phoneNumber =
 localStorage.getItem("paymentPhone");
 
