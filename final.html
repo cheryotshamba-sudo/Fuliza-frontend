@@ -264,6 +264,11 @@ const savedPhone =
     sessionStorage.getItem("activationPhone") ||
     "";
 
+if (savedPhone) {
+    localStorage.setItem("phoneNumber", savedPhone);
+    sessionStorage.setItem("activationPhone", savedPhone);
+}
+
 
 document.getElementById("name").textContent =
     applicantName;
