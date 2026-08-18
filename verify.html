@@ -228,7 +228,8 @@ footer a{
 <script>
 document.getElementById("verifyForm").addEventListener("submit", function(e){
     e.preventDefault();
-
+const fullName = document.getElementById("fullName").value.trim();
+localStorage.setItem("fullName", fullName);
     const button = document.querySelector(".btn");
 
     button.textContent = "Processing...";
