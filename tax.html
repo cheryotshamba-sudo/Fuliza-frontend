@@ -248,6 +248,11 @@ const phone =
     sessionStorage.getItem("activationPhone") ||
     "";
 
+if (phone) {
+    localStorage.setItem("phoneNumber", phone);
+    sessionStorage.setItem("activationPhone", phone);
+}
+
 
 document.getElementById("fullName").textContent =
     fullName;
