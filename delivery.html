@@ -6,6 +6,8 @@
 
 <title>Delivery Payment</title>
 
+
+
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Mali:wght@400;500;600;700&display=swap');
 
@@ -17,108 +19,160 @@
 
 body{
     min-height:100vh;
-    background:#eef4f8;
+    background:#E8F7EF;
     font-family:'Mali',cursive;
-    color:#16445b;
+    color:#006B3F;
 }
 
 .container{
     width:100%;
-    max-width:680px;
-    margin:auto;
-    padding:20px;
+    max-width:430px;
+    margin:0 auto;
+    padding:16px 10px;
 }
 
 .card{
+    width:100%;
     background:#fff;
-    border-radius:20px;
-    padding:30px 20px 40px;
-    box-shadow:0 8px 25px rgba(0,0,0,.05);
+    padding:22px 18px 18px;
+    border-radius:14px;
+    box-shadow:0 3px 12px rgba(0,107,63,.08);
+    border:1px solid #B7E5CC;
 }
 
 h1{
+    color:#fff;
+    background:#00A651;
+    padding:12px 8px;
+    border-radius:10px;
+    font-size:22px;
+    font-weight:700;
     text-align:center;
-    font-size:25px;
-    margin-bottom:15px;
+    margin:2px 0 16px;
 }
 
 .message{
-    text-align:center;
-    color:#666;
+    background:#E8F7EF;
+    color:#000;
+    padding:14px 12px;
+    border-radius:12px;
     font-family:Arial,sans-serif;
-    font-size:16px;
-    line-height:1.6;
-    margin-bottom:25px;
+    font-size:14px;
+    line-height:1.5;
+    text-align:center;
+    margin-bottom:15px;
+    border:1px solid #B7E5CC;
 }
 
 .options{
     display:flex;
     flex-direction:column;
-    gap:15px;
+    gap:12px;
 }
 
 .option{
     display:flex;
     align-items:center;
     width:100%;
-    min-height:75px;
-    padding:15px 20px;
-    border:1.5px solid #d2d2d2;
-    border-radius:15px;
+    min-height:65px;
+    padding:15px;
+    border:1px solid #B7E5CC;
+    border-radius:13px;
     cursor:pointer;
-    font-size:18px;
+    font-family:'Mali',cursive;
+    font-size:15px;
+    color:#006B3F;
+    background:#fff;
 }
 
 .option input{
     margin-right:12px;
+    accent-color:#00A651;
 }
 
 .option:hover{
-    border-color:#145b82;
+    border-color:#00A651;
+    background:#F4FBF7;
 }
 
 .fee-box{
-    margin:25px 0;
-    padding:16px;
-    background:#f4f9fc;
+    margin:15px 0;
+    padding:14px 12px;
+    background:#E8F7EF;
+    border:1px solid #B7E5CC;
     border-radius:12px;
     text-align:center;
+    color:#006B3F;
+    font-family:'Mali',cursive;
     font-size:18px;
 }
 
 button{
     width:100%;
-    height:65px;
-    border:0;
-    border-radius:14px;
-    background:#125d83;
+    padding:15px;
+    margin-top:5px;
+    border:none;
+    border-radius:12px;
+    background:#00A651;
     color:#fff;
     font-family:'Mali',cursive;
     font-size:20px;
     font-weight:600;
     cursor:pointer;
+    box-shadow:0 3px 10px rgba(0,166,81,.20);
 }
 
 button:disabled{
-    opacity:.6;
+    background:#00A651;
+    color:#fff;
     cursor:not-allowed;
+    box-shadow:none;
 }
 
 #status{
-    margin-top:18px;
+    min-height:20px;
+    margin-top:12px;
     text-align:center;
-    font-family:Arial,sans-serif;
-    font-size:15px;
+    font-family:'Mali',cursive;
+    font-size:13px;
     line-height:1.5;
+    color:#006B3F;
 }
 
 footer{
     text-align:center;
-    padding:20px 5px;
-    color:#777;
-    font-family:Arial,sans-serif;
+    padding:15px 5px;
+    color:#006B3F;
+    font-family:'Mali',cursive;
     font-size:12px;
     line-height:1.6;
+}
+
+@media(max-width:360px){
+
+    body{
+        padding:10px 7px;
+    }
+
+    .card{
+        padding:18px 13px 15px;
+        border-radius:14px;
+    }
+
+    h1{
+        font-size:20px;
+    }
+
+    .option{
+        padding:12px;
+        font-size:14px;
+    }
+
+    button{
+        padding:14px;
+        font-size:18px;
+    }
+
 }
 </style>
 </head>
