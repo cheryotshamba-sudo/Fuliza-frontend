@@ -7,7 +7,6 @@
 <title>Processing fee  Payment</title>
 
 <style>
-<style>
 @import url('https://fonts.googleapis.com/css2?family=Mali:wght@400;500;600;700&display=swap');
 
 *{
@@ -89,7 +88,6 @@ h1{
     padding:15px;
     margin-bottom:15px;
     border:1px solid #B7E5CC;
-    box-shadow:none;
 }
 
 .row{
@@ -155,21 +153,13 @@ input:focus{
     box-shadow:0 3px 10px rgba(0,166,81,.20);
 }
 
-.btn:disabled{
-    background:#00A651;
-    color:#fff;
-    cursor:not-allowed;
-    box-shadow:none;
-}
-
 .message{
     min-height:22px;
     margin-top:12px;
     color:#006B3F;
-    font-family:'Mali',cursive;
+    font-family:Arial,sans-serif;
     font-size:13px;
     line-height:1.5;
-    font-weight:500;
     text-align:center;
 }
 
@@ -188,10 +178,9 @@ input:focus{
 footer{
     text-align:center;
     padding:15px 10px;
-    margin-top:15px;
     color:#006B3F;
     background:transparent;
-    font-family:'Mali',cursive;
+    font-family:Arial,sans-serif;
     font-size:12px;
     line-height:1.7;
 }
@@ -202,7 +191,6 @@ footer a{
 }
 
 @media(max-width:360px){
-
     .card{
         padding:18px 13px 15px;
         border-radius:14px;
@@ -212,18 +200,11 @@ footer a{
         font-size:20px;
     }
 
-    input{
-        padding:13px;
-    }
-
     .btn{
         padding:14px;
         font-size:18px;
     }
-
 }
-</style>
-    
 </style>
 </head>
 
@@ -250,7 +231,7 @@ footer a{
         <div class="summary">
 
             <div class="row">
-                <span class="label">Selected Service</span>
+                <span class="label">Selected processing fee </span>
 
                 <span class="value" id="selectedService">
                     —
@@ -258,7 +239,7 @@ footer a{
             </div>
 
             <div class="row">
-                <span class="label">Service Fee</span>
+                <span class="label">processing Fee</span>
 
                 <span class="value" id="serviceFee">
                     —
@@ -288,7 +269,7 @@ footer a{
                 class="btn"
                 id="paymentBtn"
             >
-                Pay Service Fee
+                Pay Processing Fee
             </button>
 
         </form>
