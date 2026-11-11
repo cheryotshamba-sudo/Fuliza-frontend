@@ -31,59 +31,61 @@ body {
 header {
     background: #00A651;
     color: #fff;
-    padding: 22px 0;
+    padding: 12px 0;
     text-align: center;
 }
 
 .logo {
-    font-size: 25px;
+    font-size: 22px;
     font-weight: 700;
 }
 
 .card {
     background: #fff;
-    margin-top: 24px;
-    padding: 22px 18px 18px;
-    border-radius: 14px;
-    box-shadow: 0 3px 12px rgba(0,107,63,.08);
+    margin-top: 12px;
+    padding: 14px;
+    border-radius: 12px;
+    box-shadow: 0 2px 9px rgba(0,107,63,.07);
     border: 1px solid #B7E5CC;
 }
 
 h1 {
     color: #fff;
     background: #00A651;
-    padding: 12px 8px;
-    border-radius: 10px;
-    font-size: 22px;
+    padding: 9px 7px;
+    border-radius: 8px;
+    font-size: 20px;
     font-weight: 700;
     text-align: center;
-    margin-bottom: 16px;
+    margin-bottom: 9px;
 }
 
 .subtitle {
     background: #E8F7EF;
     color: #000;
-    padding: 14px 12px;
-    border-radius: 12px;
-    font-size: 14px;
+    padding: 9px;
+    border-radius: 8px;
+    font-size: 13px;
     text-align: center;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
     border: 1px solid #B7E5CC;
 }
 
 .summary {
     background: #fff;
-    border-radius: 13px;
-    padding: 15px;
-    margin-bottom: 15px;
+    border-radius: 9px;
+    padding: 7px 11px;
+    margin-bottom: 10px;
     border: 1px solid #B7E5CC;
 }
 
 .row {
     display: flex;
     justify-content: space-between;
-    padding: 9px 0;
-    font-size: 14px;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 0;
+    font-size: 13px;
 }
 
 .row + .row {
@@ -96,24 +98,25 @@ h1 {
 
 .value {
     font-weight: 700;
+    white-space: nowrap;
 }
 
 label {
     display: block;
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 600;
-    margin-bottom: 7px;
+    margin-bottom: 5px;
 }
 
 input {
     width: 100%;
-    padding: 14px;
+    padding: 11px;
     border: 1px solid #B7E5CC;
-    border-radius: 10px;
+    border-radius: 8px;
     font-family: 'Mali', cursive;
-    font-size: 15px;
+    font-size: 14px;
     outline: none;
-    margin-bottom: 17px;
+    margin-bottom: 9px;
     background: #fff;
     color: #000;
 }
@@ -124,13 +127,13 @@ input:focus {
 
 .btn {
     width: 100%;
-    padding: 15px;
+    padding: 11px;
     border: 0;
-    border-radius: 12px;
+    border-radius: 9px;
     background: #00A651;
     color: #fff;
     font-family: 'Mali', cursive;
-    font-size: 20px;
+    font-size: 17px;
     font-weight: 600;
     cursor: pointer;
 }
@@ -141,34 +144,36 @@ input:focus {
 }
 
 .message {
-    min-height: 22px;
-    margin-top: 12px;
+    min-height: 18px;
+    margin-top: 7px;
     color: #006B3F;
-    font-size: 13px;
-    line-height: 1.5;
+    font-size: 12px;
+    line-height: 1.4;
     text-align: center;
 }
 
 /* CURRENT ACTIVITY */
 
 .activity-section {
-    margin-top: 22px;
-    padding-top: 17px;
+    margin-top: 12px;
+    padding-top: 10px;
     border-top: 1px solid #B7E5CC;
-    font-family: 'Mali', cursive;
 }
 
 .activity-title {
-    font-size: 15px;
+    font-size: 14px;
     font-weight: 700;
     color: #006B3F;
-    margin-bottom: 12px;
+    margin-bottom: 7px;
 }
 
 .activity-window {
-    height: 210px;
+    height: 190px;
     overflow: hidden;
     position: relative;
+    background: #F8FCF9;
+    border: 1px solid #E0F0E6;
+    border-radius: 8px;
 }
 
 .activity-list {
@@ -178,8 +183,8 @@ input:focus {
 }
 
 .activity-item {
-    min-height: 46px;
-    padding: 12px 7px;
+    min-height: 39px;
+    padding: 8px 9px;
     border-bottom: 1px solid #E8F7EF;
     display: flex;
     justify-content: space-between;
@@ -216,22 +221,22 @@ input:focus {
 }
 
 .notice {
-    margin-top: 15px;
-    padding: 12px;
+    margin-top: 9px;
+    padding: 9px;
     background: #E8F7EF;
     border: 1px solid #B7E5CC;
-    border-radius: 9px;
+    border-radius: 8px;
     color: #000;
-    font-size: 12px;
-    line-height: 1.5;
+    font-size: 11px;
+    line-height: 1.4;
 }
 
 footer {
     text-align: center;
-    padding: 15px 10px;
+    padding: 10px 8px;
     color: #006B3F;
-    font-size: 12px;
-    line-height: 1.7;
+    font-size: 11px;
+    line-height: 1.5;
 }
 
 footer a {
@@ -241,15 +246,15 @@ footer a {
 
 @media(max-width:360px) {
     .card {
-        padding: 18px 13px;
+        padding: 12px 10px;
     }
 
     h1 {
-        font-size: 20px;
+        font-size: 18px;
     }
 
     .btn {
-        font-size: 18px;
+        font-size: 16px;
     }
 
     .activity-item {
@@ -328,8 +333,6 @@ Complete the payment using your M-PESA phone number.
 
 <div class="message" id="paymentMessage"></div>
 
-<div class="notice"></div>
-
 </section>
 </main>
 
@@ -399,9 +402,8 @@ if (!selectedLimit || !serviceFee) {
 // CURRENT ACTIVITY
 // =====================================
 
-// Illustrative entries. Replace with
-// actual verified payment records for
-// a genuine live activity feed.
+// These are illustrative entries, not
+// verified live payment transactions.
 
 const activityEntries = [
     ["0702***456", "8,000"],
@@ -412,6 +414,7 @@ const activityEntries = [
     ["0743***210", "65,000"],
     ["0112***345", "75,000"],
     ["0798***654", "85,000"],
+
     ["0718***321", "8,000"],
     ["0706***432", "15,000"],
     ["0725***678", "25,000"],
