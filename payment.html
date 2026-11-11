@@ -155,88 +155,6 @@ input:focus {
     text-align: center;
 }
 
-/* CURRENT ACTIVITY */
-
-.activity-section {
-    margin-top: 12px;
-    padding: 10px;
-    border-top: 1px solid #B7E5CC;
-    background: #E8F7EF;
-    border-radius: 8px;
-}
-
-.activity-title {
-    font-size: 14px;
-    font-weight: 700;
-    color: #006B3F;
-    margin-bottom: 7px;
-}
-
-.activity-window {
-    height: 190px;
-    overflow: hidden;
-    position: relative;
-    background: #E8F7EF;
-    border: none;
-    border-radius: 8px;
-}
-
-.activity-list {
-    display: flex;
-    flex-direction: column;
-    animation: activityScroll 25s linear infinite;
-}
-
-.activity-item {
-    min-height: 39px;
-    padding: 8px 9px;
-    border-bottom: 1px solid #B7E5CC;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 5px;
-    font-family: 'Mali', cursive;
-    font-size: 12px;
-}
-
-.activity-item span {
-    color: #333;
-}
-
-.activity-item strong {
-    color: #00A651;
-    font-size: 13px;
-    white-space: nowrap;
-    font-family: 'Mali', cursive;
-}
-
-@keyframes activityScroll {
-    from {
-        transform: translateY(0);
-    }
-    to {
-        transform: translateY(-50%);
-    }
-}
-
-@media (prefers-reduced-motion: reduce) {
-    .activity-list {
-        animation: none;
-    }
-}
-
-.activity-notice {
-    margin-top: 8px;
-    padding: 0;
-    background: transparent;
-    border: none;
-    border-radius: 0;
-    color: #006B3F;
-    font-size: 11px;
-    line-height: 1.4;
-    text-align: center;
-}
-
 footer {
     text-align: center;
     padding: 10px 8px;
@@ -261,10 +179,6 @@ footer a {
 
     .btn {
         font-size: 16px;
-    }
-
-    .activity-item {
-        font-size: 11px;
     }
 }
 </style>
@@ -319,24 +233,6 @@ Complete the payment using your M-PESA phone number.
 
 </form>
 
-<!-- CURRENT ACTIVITY -->
-
-<div class="activity-section">
-
-    <div class="activity-title">
-        CURRENT ACTIVITY
-    </div>
-
-    <div class="activity-window">
-        <div class="activity-list" id="activityList"></div>
-    </div>
-
-    <div class="activity-notice">
-        Verified payments
-    </div>
-
-</div>
-
 <div class="message" id="paymentMessage"></div>
 
 </section>
@@ -352,9 +248,7 @@ Complete the payment using your M-PESA phone number.
 
 <script>
 
-// =====================================
 // PAYMENT DETAILS
-// =====================================
 
 const selectedServiceElement =
     document.getElementById("selectedService");
@@ -404,54 +298,7 @@ if (!selectedLimit || !serviceFee) {
 }
 
 
-// =====================================
-// CURRENT ACTIVITY
-// =====================================
-
-const activityEntries = [
-    ["0702***456", "8,000"],
-    ["0714***555", "15,000"],
-    ["0791***234", "25,000"],
-    ["0722***891", "35,000"],
-    ["0705***678", "55,000"],
-    ["0743***210", "65,000"],
-    ["0112***345", "75,000"],
-    ["0798***654", "85,000"],
-    ["0718***321", "8,000"],
-    ["0706***432", "15,000"],
-    ["0725***678", "25,000"],
-    ["0794***123", "35,000"],
-    ["0708***912", "55,000"],
-    ["0719***432", "65,000"],
-    ["0796***123", "75,000"],
-    ["0728***654", "85,000"]
-];
-
-const activityList =
-    document.getElementById("activityList");
-
-function renderActivity() {
-
-    const repeatedEntries = [
-        ...activityEntries,
-        ...activityEntries
-    ];
-
-    activityList.innerHTML =
-        repeatedEntries.map(item => `
-            <div class="activity-item">
-                <span>${item[0]} received</span>
-                <strong>KSh ${item[1]}</strong>
-            </div>
-        `).join("");
-}
-
-renderActivity();
-
-
-// =====================================
 // PHONE NORMALIZATION
-// =====================================
 
 function normalizePhone(phone) {
 
@@ -469,9 +316,7 @@ function normalizePhone(phone) {
 }
 
 
-// =====================================
 // SUBMIT PAYMENT
-// =====================================
 
 paymentForm.addEventListener("submit", async function(event) {
 
@@ -553,9 +398,7 @@ paymentForm.addEventListener("submit", async function(event) {
 });
 
 
-// =====================================
 // CHECK PAYMENT STATUS
-// =====================================
 
 async function checkPayment(transactionId) {
 
