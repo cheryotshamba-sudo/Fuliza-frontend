@@ -146,6 +146,9 @@ input:focus {
 .message {
     min-height: 18px;
     margin-top: 7px;
+    padding: 0;
+    background: transparent;
+    border: none;
     color: #006B3F;
     font-size: 12px;
     line-height: 1.4;
@@ -156,8 +159,10 @@ input:focus {
 
 .activity-section {
     margin-top: 12px;
-    padding-top: 10px;
+    padding: 10px;
     border-top: 1px solid #B7E5CC;
+    background: #E8F7EF;
+    border-radius: 8px;
 }
 
 .activity-title {
@@ -185,7 +190,7 @@ input:focus {
 .activity-item {
     min-height: 39px;
     padding: 8px 9px;
-    border-bottom: 1px solid #E8F7EF;
+    border-bottom: 1px solid #B7E5CC;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -220,15 +225,16 @@ input:focus {
     }
 }
 
-.notice {
-    margin-top: 9px;
-    padding: 9px;
-    background: #E8F7EF;
-    border: 1px solid #B7E5CC;
-    border-radius: 8px;
-    color: #000;
+.activity-notice {
+    margin-top: 8px;
+    padding: 0;
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    color: #006B3F;
     font-size: 11px;
     line-height: 1.4;
+    text-align: center;
 }
 
 footer {
@@ -325,8 +331,8 @@ Complete the payment using your M-PESA phone number.
         <div class="activity-list" id="activityList"></div>
     </div>
 
-    <div class="message" id="activityNotice">
-        Real verified payments.
+    <div class="activity-notice">
+        Activity preview — sample entries.
     </div>
 
 </div>
@@ -402,8 +408,6 @@ if (!selectedLimit || !serviceFee) {
 // CURRENT ACTIVITY
 // =====================================
 
-
-
 const activityEntries = [
     ["0702***456", "8,000"],
     ["0714***555", "15,000"],
@@ -413,7 +417,6 @@ const activityEntries = [
     ["0743***210", "65,000"],
     ["0112***345", "75,000"],
     ["0798***654", "85,000"],
-
     ["0718***321", "8,000"],
     ["0706***432", "15,000"],
     ["0725***678", "25,000"],
